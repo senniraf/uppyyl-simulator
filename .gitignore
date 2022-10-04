@@ -7,3 +7,10 @@ __pycache__/
 
 # Ignore the PyCharm configurations
 .idea/
+
+# Ignore VS-Code configurations
+.vscode/
+
+# Ignore build and package directories
+build/
+uppyyl_simulator.egg-info/
