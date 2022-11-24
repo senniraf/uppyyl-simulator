@@ -325,7 +325,7 @@ class Simulator:
                             broadcast_listeners[other_inst_name] = [(None, None)]
                         else:
                             listener_edges = other_inst_edges["listener"].get(
-                                chan_obj, []
+                                chan_obj, [(None, None)]
                             )
                             broadcast_listeners[other_inst_name] = listener_edges
                     broadcast_listener_combinations = product_dict(broadcast_listeners)
