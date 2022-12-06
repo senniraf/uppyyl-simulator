@@ -34,7 +34,7 @@ setup(
     },
     url="",
     install_requires=[
-        "numpy==1.22.4",
+        "numpy>=1.18.1",
         "pytest==7.1.2",
         "pytest-subtests==0.8.0",
         "TatSu==5.6.1",
