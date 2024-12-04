@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools >= 65.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uppyyl_simulator"
+dynamic = ["version"]
+requires-python = ">=3.8"
+description = "Uppyyl simulator including a CLI tool."
+readme = "README.md"
+authors = [
+    {name = "Sascha Lehmann", email = "s.lehmann@tuhh.de"},
+    {name = "Raffael Senn", email = "raffael.senn@uni-konstanz.de"}
+]
+license = {file = "LICENSE"}
+dependencies = [
+    "numpy>=1.18.1",
+    "pytest==7.1.2",
+    "pytest-subtests==0.8.0",
+    "TatSu==5.6.1",
+    "lxml==4.9.1",
+    "colorama==0.4.4",
+    "coverage==6.4",
+]
+
+[project.urls]
+Affiliation = "https://www.tuhh.de/sts"
+
+[project.scripts]
+uppyyl_simulator = "uppyyl_simulator.__main__:main"
+uppyyl-simulator = "uppyyl_simulator.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["uppyyl_simulator"]
+
+[tool.setuptools.dynamic]
+version = {attr = "uppyyl_simulator.version.__version__"}
