@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "uppyyl_simulator"
-dynamic = ["version"]
+version = "0.1.0"
 requires-python = ">=3.8"
 description = "Uppyyl simulator including a CLI tool."
 readme = "README.md"
@@ -31,7 +31,4 @@ uppyyl_simulator = "uppyyl_simulator.__main__:main"
 uppyyl-simulator = "uppyyl_simulator.__main__:main"
 
 [tool.setuptools.packages.find]
-include = ["uppyyl_simulator"]
-
-[tool.setuptools.dynamic]
-version = {attr = "uppyyl_simulator.version.__version__"}
+include = ["uppyyl_simulator*"]
