@@ -166,8 +166,8 @@ def uppaal_xml_to_dict(system_xml_str):
             edge["sync_label"] = None
             edge["select"] = None
             edge["select_label"] = None
-            edge["comment"] = None
-            edge["comment_label"] = None
+            edge["comments"] = None
+            edge["comments_label"] = None
             label_elements = edge_element.findall("label")
             for label_element in label_elements:
                 label = OrderedDict()
@@ -189,9 +189,9 @@ def uppaal_xml_to_dict(system_xml_str):
                 elif label_element.attrib["kind"] == "select":
                     edge["select"] = label_element.text
                     edge["select_label"] = label
-                elif label_element.attrib["kind"] == "comment":
-                    edge["comment"] = label_element.text
-                    edge["comment_label"] = label
+                elif label_element.attrib["kind"] == "comments":
+                    edge["comments"] = label_element.text
+                    edge["comments_label"] = label
 
             # Parse edge nails
             edge["nails"] = []
@@ -373,10 +373,10 @@ def uppaal_dict_to_system(system_data):
                 edge.view["select_label"] = edge_data["select_label"].copy()
 
             # Add comments
-            if edge_data["comment"]:
-                edge.add_comment(edge_data["comment"])
-            if edge_data["comment_label"]:
-                edge.view["comment_label"] = edge_data["comment_label"].copy()
+            if edge_data["comments"]:
+                edge.add_comment(edge_data["comments"])
+            if edge_data["comments_label"]:
+                edge.view["comments_label"] = edge_data["comments_label"].copy()
 
             edge.view["nails"] = OrderedDict()
             for nail in edge_data["nails"]:
