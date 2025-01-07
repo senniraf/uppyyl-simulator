@@ -355,6 +355,7 @@ class Edge(basic_automaton.Edge):
         self.resets = []
         self.sync = None
         self.selects = []
+        self.comment = None
 
         self.view = {"nails": OrderedDict()}
 
@@ -364,6 +365,7 @@ class Edge(basic_automaton.Edge):
         self.view["update_label"] = {"pos": {"x": center["x"], "y": center["y"]}, "id": unique_id("label")}
         self.view["sync_label"] = {"pos": {"x": center["x"], "y": center["y"] + 20}, "id": unique_id("label")}
         self.view["select_label"] = {"pos": {"x": center["x"], "y": center["y"] - 40}, "id": unique_id("label")}
+        self.view["comment_label"] = {"pos": {"x": center["x"], "y": center["y"] + 40}, "id": unique_id("label")}
 
     def add_nail(self, pos):
         """Adds a fixed point (nail) to the graphical representation of the edge.
@@ -501,6 +503,15 @@ class Edge(basic_automaton.Edge):
         rst = Reset(rst_data, self.parent)
         self.add_reset(rst)
         return rst
+
+    def add_comment(self, comment):
+        """Adds a comment to the edge
+
+        Args:
+            comment: Comment on edge.
+        """
+
+        self.comment = comment
 
     def set_sync(self, sync):
         """Sets the synchronization label.
