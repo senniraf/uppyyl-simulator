@@ -145,7 +145,8 @@ def uppaal_xml_to_dict(system_xml_str):
         edge_elements = template_element.findall("transition")
         for edge_element in edge_elements:
             edge = OrderedDict()
-            edge["id"] = unique_id("edge")
+            #edge["id"] = unique_id("edge")
+            edge["id"] = edge_element.get("id") if edge_element.get("id") is not None else unique_id("edge")
 
             # Parse edge source location
             edge_source_element = edge_element.find("source")
